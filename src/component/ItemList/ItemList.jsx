@@ -1,21 +1,18 @@
-import { Link } from "react-router-dom"
+import Item from "../Item/Item"
+import "./ItemList.css"
 
 const ItemList = ({movies}) => {
   return (
-    <>
+    <section className="itemList">
     {movies && movies.length > 0
         ?
         (movies.map((movie) => (
-          <div key={movie.id}>
-            <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
-            <Link to={`/pelicula/${movie.id}`}>Ver Detalle</Link>
-          </div>
+          <Item key={movie.id} {...movie}/>
         )))
         :
         <h2>No se encuentran peliculas</h2>
       }
-    </>
+    </section>
   )
 }
 

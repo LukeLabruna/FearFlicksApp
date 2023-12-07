@@ -11,6 +11,7 @@ const ItemListContainer = () => {
   const { decada } = useParams()
 
   const accesTokenAuth = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkODNjNTc1OGNmNGZjZGMxYjVhYmQ4Yjg3NjU2NTZmZiIsInN1YiI6IjY1NWU4NDQ5MWQzNTYzMDExYjljNDUyMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FLQ_8lAvq1skoac8xvHVeZ-a52BN-VP3Zoe3VqPiIkc";
+  
   const options = {
     method: 'GET',
     headers: {
