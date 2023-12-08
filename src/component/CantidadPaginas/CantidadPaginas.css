@@ -1,0 +1,15 @@
+.cantidadPaginas {
+  width: 50%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cantidadPaginas button {
+  background-color: #1E1E1E;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: #A0A0A0;
+  box-shadow: 0 0 2rem #BF360C;
+}

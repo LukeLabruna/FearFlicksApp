@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import { optionsApi, fetchMovies } from "../../services/TMDBAPI";
+import CantidadPaginas from "../CantidadPaginas/CantidadPaginas";
 
 const ItemListContainer = () => {
   const [movies, setMovies] = useState([])
 
   const { numberPage } = useParams()
   const { decada } = useParams()
-
-  const pages = Array.from({ length: 20 }, (_, index) => index + 1);
 
 useEffect(() => {
   async function fetchData() {
@@ -28,14 +27,7 @@ useEffect(() => {
     <>
       <h1>Peliculas de terror</h1>
       <ItemList  movies={movies}/>
-      <hr />
-      {
-        
-          pages.map((page) => (
-            <Link key={page} to={`/decada/${decada}/pagina/${page}`} ><button>{page}</button></Link> 
-          ))
-          
-      }
+      <CantidadPaginas />  
     </>
   )
 }
