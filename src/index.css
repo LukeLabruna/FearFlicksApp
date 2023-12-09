@@ -38,6 +38,7 @@ p {
 body{
   color: #FFFFFF;
   background-color: #1E1E1E;
+  overflow-x: hidden;
 }
 
 a {

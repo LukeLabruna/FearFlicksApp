@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import { optionsApi, fetchMovies } from "../../services/TMDBAPI";
 import CantidadPaginas from "../CantidadPaginas/CantidadPaginas";
+import "./ItemListContainer.css"
 
 const ItemListContainer = () => {
   const [movies, setMovies] = useState([])
@@ -22,10 +23,10 @@ useEffect(() => {
   }
   fetchData()
 }, [numberPage])
-  
+
   return (
     <>
-      <h1>Peliculas de terror</h1>
+      <h1>Terror de los '<span className="decada">{decada.slice(-2)}</span></h1>
       <ItemList  movies={movies}/>
       <CantidadPaginas />  
     </>

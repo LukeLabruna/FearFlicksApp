@@ -30,7 +30,6 @@ const Home = () => {
     fetchData()
 
   }, [])
-  console.log(bestMovie)
 
 
   return (

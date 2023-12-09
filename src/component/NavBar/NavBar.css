@@ -1,0 +1,47 @@
+header{
+  display: none;
+}
+
+@media (width > 780px) {
+  header {
+    display: flex;
+    padding: 1rem;
+    border-bottom: solid 1px;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .brand {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .brand h1 {
+    font-size: 2rem;
+  }
+
+  .decadas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .decadas div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .usuario {
+    width: 100%;
+  }
+
+  .usuario p {
+    width: 100%;
+    text-align: right;
+  }
+}
