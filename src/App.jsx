@@ -14,7 +14,7 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/decada/:decada/pagina/:numberPage' element={<ItemListContainer />}/>
+          <Route path='/decada/:decada' element={<ItemListContainer />}/>
           <Route path='/pelicula/:id' element={<ItemDetailContainer />}/>
         </Routes>
       </BrowserRouter>
