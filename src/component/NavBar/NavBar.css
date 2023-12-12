@@ -1,5 +1,41 @@
-header{
+.usuario {
+ display: none;
+}
+
+header {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.decadas {
   display: none;
+}
+
+.decadas div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 8rem;
+  gap: 0.5rem;
+}
+
+.brand h1 {
+  font-size: 1.5rem;
+}
+
+.mostrar {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  position: absolute;
+  top: 2rem;
+  left: 5rem;
+  box-shadow: 0 0 4rem #cfcfcf2d;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 @media (width > 780px) {
@@ -9,6 +45,11 @@ header{
     border-bottom: solid 1px;
     align-items: center;
     margin-bottom: 2rem;
+    position: unset;
+  }
+
+  header span {
+    display: none;
   }
 
   .brand {
@@ -32,11 +73,13 @@ header{
   .decadas div {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 0.5rem;
   }
 
   .usuario {
+    display: block;
     width: 100%;
   }
 
