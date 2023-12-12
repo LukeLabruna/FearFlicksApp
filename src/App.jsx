@@ -4,6 +4,7 @@ import ItemListContainer from './component/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
 import Home from './component/Home/Home'
 import NavBar from './component/NavBar/NavBar'
+import NavBarMobile from './component/NavBarMobile/NavBarMobile'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/decada/:decada' element={<ItemListContainer />}/>
           <Route path='/pelicula/:id' element={<ItemDetailContainer />}/>
         </Routes>
+        <NavBarMobile />
       </BrowserRouter>
     </>
   )
