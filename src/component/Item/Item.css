@@ -1,15 +1,19 @@
 .item img {
-  width: 15rem;
+  width: 100%;
+  border-radius: 0.5rem;
 }
 
 .item {
-  min-width: 20rem;
-  max-width: 20rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 4rem #cfcfcf2d;
-  padding: 1rem;
+  border-bottom: 1px solid rgb(54, 54, 54);
+  padding-bottom: 1rem;
+}
+
+.item h3 {
+  align-self: flex-start;
+  padding-left: 0.5rem;
 }

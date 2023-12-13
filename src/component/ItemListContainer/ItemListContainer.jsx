@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import { optionsApi, fetchMovies } from "../../services/TMDBAPI";
+import { optionsApi, fetchMovies, fetchTopMovie, fetchNowPlaying } from "../../services/TMDBAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,10 +13,17 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true)
 
   const { decada } = useParams()
+  const { pathname } = useLocation()
 
 useEffect(() => {
   async function fetchData() {
-    await fetch(fetchMovies(decada, numberPage), optionsApi)
+    const fetchCondicional = decada
+                    ? fetchMovies(decada, numberPage)
+                    : (pathname === "/top" 
+                        ? fetchTopMovie(numberPage) 
+                        : fetchNowPlaying(numberPage))
+
+    await fetch(fetchCondicional, optionsApi)
       .then(response => response.json())
       .then(response => {
         const movieFilter = response.results.filter(movie => movie.overview.trim() !== "");
@@ -30,13 +37,22 @@ useEffect(() => {
 }, [decada])
 
 window.onscroll = () => {
-  if (
-    window.innerHeight + document.documentElement.scrollTop ===
-    document.documentElement.offsetHeight
-  ) {
+
+  const distanceToBottom =
+  document.documentElement.offsetHeight -
+  (window.innerHeight + window.scrollY);
+
+if (distanceToBottom <= 20) {
     setLoading(true)
     async function fetchData() {
-      await fetch(fetchMovies(decada, numberPage), optionsApi)
+      const fetchCondicional = decada
+                    ? fetchMovies(decada, numberPage)
+                    : (pathname === "/top" 
+                        ? fetchTopMovie(numberPage) 
+                        : fetchNowPlaying(numberPage))
+                      
+
+    await fetch(fetchCondicional, optionsApi)
         .then(response => response.json())
         .then(response => {
           const movieFilter = response.results.filter(movie => movie.overview.trim() !== "");
@@ -49,11 +65,14 @@ window.onscroll = () => {
     fetchData()
   }
 };
-        
+
 
   return (
     <>
-      <h1>Terror de los '<span className="decada">{decada.slice(-2)}</span></h1>
+      {decada 
+        ? <h1>Terror de los '<span className="decada">{decada.slice(-2)}</span></h1>
+        : <h2>{pathname.slice(1)}</h2>
+      }
       <ItemList  movies={movies}/>
       {loading && <p>Cargando <FontAwesomeIcon icon={faSpinner} spinPulse className="loading"/></p>}  
     </>

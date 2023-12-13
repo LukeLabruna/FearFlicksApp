@@ -13,7 +13,7 @@
   src: url('/font/MontserratAlternates-Thin.ttf') format('truetype');
 }
 
-h1, h2, h3, h4 {
+h1 {
   font-family: "Friday13";
   font-weight: lighter;
   text-align: center;
@@ -25,26 +25,29 @@ h1 {
 
 h2 {
   font-size: 3rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(54, 54, 54);
+  text-transform: capitalize;
 }
 
-p {
+p, h2, h3, h4 {
   font-family: "MontserratAlternates-Thin";
-  color: #A0A0A0;
   text-align: center;
-  font-weight: bold;
   letter-spacing: 0.2rem;
 }
 
 body{
   color: #FFFFFF;
-  background-color: #1E1E1E;
+  background-color: #000000;
   overflow-x: hidden;
   margin: 3rem 0 6rem 0;
 }
 
 a {
   text-decoration: none;
-  color: #BF360C;
+  color: #FFFFFF;
   font-family: "MontserratAlternates-Thin";
   font-weight: bold;
   letter-spacing: 0.2rem;

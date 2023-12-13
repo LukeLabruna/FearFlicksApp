@@ -36,7 +36,7 @@ const NavBar = () => {
 
   return (
     <header>
-      <Link className="brand" to={'/'} disabled><h1 style={{ color: "white" }}>FearFlicks</h1></Link><span onClick={handleMostrar}><FontAwesomeIcon icon={faAngleDown} /></span>
+      <Link className="brand" to={'/'} onClick={() => {window.scrollTo(0, 0);}}><h1 style={{ color: "white" }}>FearFlicks</h1></Link><span onClick={handleMostrar}><FontAwesomeIcon icon={faAngleDown} /></span>
         <nav className={`decadas ${mostrar ? "mostrar" : ""}`}>
           <p>Años</p>
           <div>

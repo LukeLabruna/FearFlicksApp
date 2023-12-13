@@ -1,0 +1,17 @@
+.itemDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.itemDetail img {
+  width: 100%;
+}
+
+.itemDetail h2 {
+  margin: 0;
+}
+
+.itemDetail p {
+  padding: 0 1rem;
+}

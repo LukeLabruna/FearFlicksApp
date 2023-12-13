@@ -16,6 +16,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/decada/:decada' element={<ItemListContainer />}/>
+          <Route path='/top' element={<ItemListContainer />}/>
+          <Route path='/enCartelera' element={<ItemListContainer />}/>
           <Route path='/pelicula/:id' element={<ItemDetailContainer />}/>
         </Routes>
         <NavBarMobile />
