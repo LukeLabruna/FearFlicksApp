@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+* :focus-visible {
+  outline-offset: 0px;
+  outline: none;
+} 
+
 @font-face {
   font-family: "Friday13";
   src: url('/font/Friday13.ttf');

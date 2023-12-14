@@ -15,44 +15,43 @@ const ItemListContainer = () => {
   const { decada } = useParams()
   const { pathname } = useLocation()
 
-useEffect(() => {
-  async function fetchData() {
-    const fetchCondicional = decada
-                    ? fetchMovies(decada, numberPage)
-                    : (pathname === "/top" 
-                        ? fetchTopMovie(numberPage) 
-                        : fetchNowPlaying(numberPage))
+  useEffect(() => {
+    async function fetchData() {
+      const fetchCondicional = decada
+        ? fetchMovies(decada, numberPage)
+        : (pathname === "/top"
+          ? fetchTopMovie(numberPage)
+          : fetchNowPlaying(numberPage))
 
-    await fetch(fetchCondicional, optionsApi)
-      .then(response => response.json())
-      .then(response => {
-        const movieFilter = response.results.filter(movie => movie.overview.trim() !== "");
-        setMovies(movieFilter);
-        setNumberPage((prevPage) => prevPage + 1)
-        setLoading(false)
-      })
-      .catch(err => console.error(err));
-  }
-  fetchData()
-}, [decada])
+      await fetch(fetchCondicional, optionsApi)
+        .then(response => response.json())
+        .then(response => {
+          const movieFilter = response.results.filter(movie => movie.overview.trim() !== "");
+          setMovies(movieFilter);
+          setNumberPage((prevPage) => prevPage + 1)
+          setLoading(false)
+        })
+        .catch(err => console.error(err));
+    }
+    fetchData()
+  }, [decada])
 
-window.onscroll = () => {
 
-  const distanceToBottom =
-  document.documentElement.offsetHeight -
-  (window.innerHeight + window.scrollY);
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading) {
+      return;
+    }
 
-if (distanceToBottom <= 20) {
     setLoading(true)
     async function fetchData() {
       const fetchCondicional = decada
-                    ? fetchMovies(decada, numberPage)
-                    : (pathname === "/top" 
-                        ? fetchTopMovie(numberPage) 
-                        : fetchNowPlaying(numberPage))
-                      
+        ? fetchMovies(decada, numberPage)
+        : (pathname === "/top"
+          ? fetchTopMovie(numberPage)
+          : fetchNowPlaying(numberPage))
 
-    await fetch(fetchCondicional, optionsApi)
+
+      await fetch(fetchCondicional, optionsApi)
         .then(response => response.json())
         .then(response => {
           const movieFilter = response.results.filter(movie => movie.overview.trim() !== "");
@@ -63,18 +62,27 @@ if (distanceToBottom <= 20) {
         .catch(err => console.error(err));
     }
     fetchData()
-  }
-};
 
+
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loading]);
+
+
+ const fecha = new Date()
+console.log(fecha)
 
   return (
     <>
-      {decada 
+      {decada
         ? <h1>Terror de los '<span className="decada">{decada.slice(-2)}</span></h1>
         : <h2>{pathname.slice(1)}</h2>
       }
-      <ItemList  movies={movies}/>
-      {loading && <p>Cargando <FontAwesomeIcon icon={faSpinner} spinPulse className="loading"/></p>}  
+      <ItemList movies={movies} />
+      {loading && <p>Cargando <FontAwesomeIcon icon={faSpinner} spinPulse className="loading" /></p>}
     </>
   )
 }
