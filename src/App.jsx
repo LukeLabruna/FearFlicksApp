@@ -20,7 +20,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/decada/:decada' element={<Decade />}/>
           <Route path='/top' element={<Top />}/>
-          <Route path='/enCartelera' element={<NowPlaying />}/>
+          <Route path='/estrenos' element={<NowPlaying />}/>
           <Route path='/pelicula/:id' element={<ItemDetailContainer />}/>
           <Route path='/busqueda' element={<Search />}/>
         </Routes>

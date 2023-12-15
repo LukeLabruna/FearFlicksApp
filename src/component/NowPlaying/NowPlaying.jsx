@@ -9,6 +9,7 @@ const NowPlaying = () => {
   const [loading, setLoading] = useState(true)
 
   const fetchData = async () => {
+    setLoading(true)
     await fetch(fetchNowPlaying(numberPage), optionsApi)
       .then(response => response.json())
       .then(response => {

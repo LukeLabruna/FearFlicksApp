@@ -23,17 +23,12 @@ const Decade = () => {
   }
 
   useEffect(() => {
-    console.log("1", numberPage)
-    // window.scrollTo(0, 0)
     setNumberPage(1)
     setMovies([])
-    console.log("2", numberPage)
   }, [decada])
 
   useEffect(() => {
-    console.log("3", numberPage)
     fetchData()
-    console.log("4", numberPage)
   }, [numberPage])
 
 

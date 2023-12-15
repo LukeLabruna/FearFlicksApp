@@ -13,3 +13,19 @@
   color: white;
   padding-left: 1rem;
 }
+
+.resultados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.resultados a {
+  width: 30%;
+}
+
+.resultados img {
+  width: 100%;
+}
+

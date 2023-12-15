@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 
-* :focus-visible {
+:focus-visible {
   outline-offset: 0px;
   outline: none;
 } 
+
+::-webkit-scrollbar {
+  display: none;
+}
 
 @font-face {
   font-family: "Friday13";

@@ -30,4 +30,4 @@ export const fetchMovieById = (id) => `https://api.themoviedb.org/3/movie/${id}?
 
 export const fetchMovies = (decada, numberPage = 1) => `https://api.themoviedb.org/3/discover/movie?with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000&include_adult=false&language=es-ES&primary_release_date.gte=${decada}-01-01&primary_release_date.lte=${parseInt(decada) + 9}-12-31&page=${numberPage}&without_genres=16%2C35`
 
-export const fetchSearchMovies = (query, numberPage = 1) => `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=es-ES&page=${numberPage}`
+export const fetchSearchMovies = (query, numberPage = 1) => `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=${numberPage}&sort_by=popularity.desc&with_genres=27&without_genres=16%2C35&with_text_query=${query}`

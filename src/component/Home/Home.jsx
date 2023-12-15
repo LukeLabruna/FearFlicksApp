@@ -44,7 +44,7 @@ const Home = () => {
       </div>
       <Link to={"/top"}><h2 >Top<span style={{fontSize: "0.8rem"}}><FontAwesomeIcon icon={faPlus} /></span></h2></Link>
       <ItemList movies={bestMovie} />
-      <Link to={"/enCartelera"}><h2 >En cartelera<span style={{fontSize: "0.8rem"}}><FontAwesomeIcon icon={faPlus} /></span></h2></Link>
+      <Link to={"/estrenos"}><h2 >Estrenos<span style={{fontSize: "0.8rem"}}><FontAwesomeIcon icon={faPlus} /></span></h2></Link>
       <ItemList movies={newMovie} />
     </main>
   )
