@@ -6,11 +6,11 @@ import "./NavBarMobile.css"
 const NavBarMobile = () => {
   return (
     <div className="navBarMobile">
-      <Link to={"/"} onClick={() => {window.scrollTo(0, 0);}}> <FontAwesomeIcon icon={faHouse} className="navMobileIcon"/> </Link>
-      <Link to={"/busqueda"}> <FontAwesomeIcon icon={faMagnifyingGlass} className="navMobileIcon"/> </Link>
-      <Link> <FontAwesomeIcon icon={faDharmachakra} className="bigger navMobileIcon"/> </Link>
-      <Link> <FontAwesomeIcon icon={faHeart} className="navMobileIcon"/> </Link>
-      <Link> <FontAwesomeIcon icon={faUser} className="navMobileIcon"/> </Link>
+      <Link to={"/"} onClick={() => {window.scrollTo(0, 0);}} className="containerIconMobile"> <FontAwesomeIcon icon={faHouse} className="navMobileIcon"/><span>Inicio</span> </Link>
+      <Link to={"/busqueda"} className="containerIconMobile"> <FontAwesomeIcon icon={faMagnifyingGlass} className="navMobileIcon"/><span>Busqueda</span></Link>
+      <Link className="containerIconMobile"> <FontAwesomeIcon icon={faDharmachakra} className="bigger navMobileIcon"/><span>Ruleta</span></Link>
+      <Link className="containerIconMobile"> <FontAwesomeIcon icon={faHeart} className="navMobileIcon"/><span>Favoritos</span></Link>
+      <Link className="containerIconMobile"> <FontAwesomeIcon icon={faUser} className="navMobileIcon"/><span>Perfil</span></Link>
     </div>
   )
 }
