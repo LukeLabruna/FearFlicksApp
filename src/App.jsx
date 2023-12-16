@@ -8,6 +8,7 @@ import Home from './component/Home/Home'
 import NavBar from './component/NavBar/NavBar'
 import NavBarMobile from './component/NavBarMobile/NavBarMobile'
 import Search from './component/Search/Search'
+import Login from './component/Login/Login'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/estrenos' element={<NowPlaying />}/>
           <Route path='/pelicula/:id' element={<ItemDetailContainer />}/>
           <Route path='/busqueda' element={<Search />}/>
+          <Route path='/login' element={<Login />}/>
         </Routes>
         <NavBarMobile />
       </BrowserRouter>

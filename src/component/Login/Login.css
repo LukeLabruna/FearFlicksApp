@@ -1,0 +1,49 @@
+.Login form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+}
+
+
+.Login h2 {
+  margin: 0;
+}
+
+.Login label {
+  font-family: "MontserratAlternates-Thin";
+  font-weight: bolder;
+}
+
+.Login a{
+  border-top: 1px solid rgb(54, 54, 54);
+  text-align: center;
+  margin-top: 0.8rem;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+.Login form input {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.Login form button {
+  font-family: "MontserratAlternates-Thin";
+  font-weight: bolder;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.Login form .error {
+  border: 2px solid rgb(255, 38, 0);
+}
