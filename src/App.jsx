@@ -9,6 +9,7 @@ import NavBar from './component/NavBar/NavBar'
 import NavBarMobile from './component/NavBarMobile/NavBarMobile'
 import Search from './component/Search/Search'
 import Login from './component/Login/Login'
+import CreateAccount from './component/CreateAccount/CreateAccount'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/pelicula/:id' element={<ItemDetailContainer />}/>
           <Route path='/busqueda' element={<Search />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/crear-cuenta' element={<CreateAccount />}/>
         </Routes>
         <NavBarMobile />
       </BrowserRouter>

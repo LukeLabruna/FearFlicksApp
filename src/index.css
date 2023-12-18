@@ -62,6 +62,11 @@ a {
   letter-spacing: 0.2rem;
 }
 
+label {
+  font-family: "MontserratAlternates-Thin";
+  font-weight: bolder;
+}
+
 @media (width > 780px) {
   body {
     margin: 0;

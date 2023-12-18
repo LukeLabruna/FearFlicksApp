@@ -32,7 +32,7 @@ const Login = () => {
         <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} className={error ? "error" : ""}/>
 
         <button type="submit">Iniciar Sesion</button>
-        <Link to={"/crar-cuenta"}>Crear cuenta</Link>
+        <Link to={"/crear-cuenta"}>Crear cuenta</Link>
       </form>
     </div>
   )

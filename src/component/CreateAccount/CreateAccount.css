@@ -1,4 +1,4 @@
-.Login form {
+.CreateAccount form {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -8,12 +8,11 @@
   transform: translate(-50%, -50%);
 }
 
-
-.Login h2 {
+.CreateAccount h2 {
   margin: 0;
 }
 
-.Login a{
+.CreateAccount a{
   border-top: 1px solid rgb(54, 54, 54);
   text-align: center;
   margin-top: 0.8rem;
@@ -21,24 +20,30 @@
   width: 100%;
 }
 
-.Login form input {
+.CreateAccount form input {
   padding: 0.5rem;
   width: 100%;
   border-radius: 0.5rem;
   border: none;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 }
 
-.Login form button {
+.CreateAccount form button {
   font-family: "MontserratAlternates-Thin";
   font-weight: bolder;
   padding: 0.5rem 1.5rem;
   border: none;
   cursor: pointer;
   border-radius: 0.3rem;
+  margin-top: 0.5rem;
 }
 
-.Login form .error {
+.CreateAccount form div p {
+  color: rgb(255, 106, 106);
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
+}
+
+.CreateAccount form .error {
   border: 2px solid rgb(255, 38, 0);
 }
