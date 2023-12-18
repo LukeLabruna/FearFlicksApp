@@ -13,7 +13,7 @@ const Login = () => {
   const iniciarSesion = async (e) => {
     e.preventDefault()
     await signInWithEmailAndPassword(auth, email, password)
-    .then(response => {response.user && navigate(-1)})
+    .then(response => {response.user && navigate("/perfil")})
     .catch(error => {
       setError(true)
       setEmail("")

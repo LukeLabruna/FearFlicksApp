@@ -34,8 +34,6 @@ const Search = () => {
       .catch(err => console.error(err));
   }
 
-  console.log(movies)
-
   useEffect(() => {
     setNumberPage(1)
     setMovies([])
