@@ -12,6 +12,7 @@ import Login from './component/Login/Login'
 import CreateAccount from './component/CreateAccount/CreateAccount'
 import { UserProvider } from './context/UserContext'
 import UserProfile from './component/UserProfile/UserProfile'
+import Favorites from './component/Favorites/Favorites'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             <Route path='/busqueda' element={<Search />} />
             <Route path='/crear-cuenta' element={<CreateAccount />} />
             <Route path='/perfil' element={<UserProfile />} />
+            <Route path='/favoritas' element={<Favorites />} />
           </Routes>
           <NavBarMobile />
         </UserProvider>

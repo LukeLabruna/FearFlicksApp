@@ -1,13 +1,14 @@
 import React from 'react'
 import "./ItemDetail.css"
+import AddFavorites from '../AddFavorites/AddFavorites'
 
-const ItemDetail = ({title, overview, release_date, poster_path}) => {
+const ItemDetail = ({ movie }) => {
   return (
     <div className='itemDetail'>
-      <h2>{title}</h2>
-      <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`Poster de la pelicula ${title}`} />
-      <p>{overview}</p>
-      <p>Fecha de lanzamiento: {release_date}</p>
+      <h2>{movie.title} <span><AddFavorites movie={movie} /></span></h2>
+      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`Poster de la pelicula ${movie.title}`} />
+      <p>{movie.overview}</p>
+      <p>Fecha de lanzamiento: {movie.release_date}</p>
     </div>
   )
 }

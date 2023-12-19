@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
   }, [id])
  
   return (
-    <ItemDetail {...movie}/>
+    <ItemDetail movie={movie}/>
   )
 }
 
