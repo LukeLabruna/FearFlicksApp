@@ -2,15 +2,18 @@ import { useState, createContext, useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { auth, db } from "../services/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc, updateDoc, arrayUnion, arrayRemove, onSnapshot } from "firebase/firestore";
 
 export const UserContext = createContext({
-  usuario: null
+  usuario: undefined,
+  peliculasFavoritas: undefined
 })
 
 export const UserProvider = ({ children }) => {
 
-  const [usuario, setUsuario] = useState(null)
+  const [usuario, setUsuario] = useState(undefined)
+  const [uid, setUid] = useState("")
+  const [peliculasFavoritas, setPeliculasFavoritas] = useState(undefined)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -19,6 +22,12 @@ export const UserProvider = ({ children }) => {
         const docRef = doc(db, "usuarios", user.uid)
         const document = await getDoc(docRef)
         setUsuario(document.data())
+        setUid(user.uid)
+        setPeliculasFavoritas(document.data().peliculasFavoritas)
+        const unsub = onSnapshot(docRef, (doc) => {
+          setPeliculasFavoritas(doc.data().peliculasFavoritas);
+      })
+      return () => unsub()
       }
     })
   }, [])
@@ -32,8 +41,22 @@ export const UserProvider = ({ children }) => {
     });
   }
 
+  const handleAgregarFavorito = async (movie) => {
+    const docRef = doc(db, "usuarios", uid);
+    await updateDoc(docRef, {
+      peliculasFavoritas: arrayUnion(movie)
+    })
+  }
+
+  const handleBorrarFavorito = async (movie) => {
+    const docRef = doc(db, "usuarios", uid);
+    await updateDoc(docRef, {
+      peliculasFavoritas: arrayRemove(movie)
+    })
+  }
+
   return (
-    <UserContext.Provider value={{usuario, handleCerrarSesion}}>
+    <UserContext.Provider value={{ usuario, peliculasFavoritas, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito }}>
       {children}
     </UserContext.Provider>
   )

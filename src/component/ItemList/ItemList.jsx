@@ -7,7 +7,7 @@ const ItemList = ({movies}) => {
     {movies && movies.length > 0
         ?
         (movies.map((movie) => (
-          <Item key={movie.id} {...movie}/>
+          <Item key={movie.id} movie={movie}/>
         )))
         :
         <h2>No se encuentran peliculas</h2>

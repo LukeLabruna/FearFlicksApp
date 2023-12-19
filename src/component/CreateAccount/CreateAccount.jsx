@@ -41,6 +41,7 @@ const CreateAccount = () => {
       nombre,
       apellido,
       email,
+      peliculasFavoritas: [],
     }
 
 
