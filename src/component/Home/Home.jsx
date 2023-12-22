@@ -39,7 +39,7 @@ const Home = () => {
     <main className="home">
       <div className="presentacion">
         <h1>FearFlicks</h1>
-        <p>Sumérgete en el terror cinematográfico. Explora, califica y guarda tus películas de horror favoritas. Marca las que deseas ver, descubre las elecciones de otros aficionados y únete a una comunidad apasionada por el cine escalofriante.</p>
+        <p>Sumérgete en el terror cinematográfico. Explora y guarda tus películas de horror favoritas. Experimenta noches sorprendentes con nuestra ruleta única y vive el miedo de una manera inigualable. Únete a una comunidad apasionada por el cine escalofriante.</p>
         <FontAwesomeIcon icon={faAngleDown} />     
       </div>
       <Link to={"/top"}><h2 >Top<span style={{fontSize: "0.8rem"}}><FontAwesomeIcon icon={faPlus} /></span></h2></Link>

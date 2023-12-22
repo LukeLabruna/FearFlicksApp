@@ -40,5 +40,11 @@
 }
 
 .Login form .error {
-  border: 2px solid rgb(255, 38, 0);
+  border: 2px solid #b80000;
+}
+
+.Login form input::placeholder {
+  color: #b80000;
+  font-family: "MontserratAlternates-Thin";
+  font-weight: bolder;
 }
