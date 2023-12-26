@@ -90,11 +90,11 @@ export const UserProvider = ({ children }) => {
   const handleRuleta = (movie) => {
     const movieExistente = ruleta.find(item => item.id === movie.id)
 
-    if (ruleta.length >= 5 && !movieExistente) {
+    if (ruleta.length >= 6 && !movieExistente) {
       MySwal.fire({
         toast: true,
         icon: 'error',
-        title: 'Ya tienes 5 seleccionadas',
+        title: 'Ya tienes 6 seleccionadas',
         animation: false,
         position: 'top',
         showConfirmButton: false,
@@ -111,8 +111,12 @@ export const UserProvider = ({ children }) => {
     }
   }
 
+  const handleVaciarRuleta = () => {
+    setRuleta([])
+  }
+
   return (
-    <UserContext.Provider value={{ usuario, peliculasFavoritas, ruleta, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito, handleSubirImg, handleRuleta }}>
+    <UserContext.Provider value={{ usuario, peliculasFavoritas, ruleta, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito, handleSubirImg, handleRuleta, handleVaciarRuleta }}>
       {children}
     </UserContext.Provider>
   )

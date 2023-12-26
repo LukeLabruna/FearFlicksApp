@@ -13,7 +13,7 @@ import CreateAccount from './component/CreateAccount/CreateAccount'
 import { UserProvider } from './context/UserContext'
 import UserProfile from './component/UserProfile/UserProfile'
 import Favorites from './component/Favorites/Favorites'
-import Roulette from './component/Roulette/Roulette'
+import RandomRoulette from './component/RandomRoulette/RandomRoulette'
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
             <Route path='/crear-cuenta' element={<CreateAccount />} />
             <Route path='/perfil' element={<UserProfile />} />
             <Route path='/favoritas' element={<Favorites />} />
-            <Route path='/ruleta' element={<Roulette />} />
+            <Route path='/ruleta' element={<RandomRoulette />} />
           </Routes>
           <NavBarMobile />
         </UserProvider>
