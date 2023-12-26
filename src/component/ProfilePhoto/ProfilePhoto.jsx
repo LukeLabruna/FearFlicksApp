@@ -1,6 +1,8 @@
 import { useState, useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./ProfilePhoto.css"
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const ProfilePhoto = () => {
 
@@ -28,7 +30,16 @@ const ProfilePhoto = () => {
 
   return (
     <div className='profilePhoto'>
-      <label htmlFor="file"><img src={previewUrl ? previewUrl : file} alt="" /></label>
+      <label htmlFor="file">{
+        usuario.photoURL
+        ?
+        <img src={previewUrl ? previewUrl : file} alt="" />
+        :
+        previewUrl
+          ? <img src={previewUrl} alt="" />
+          : <FontAwesomeIcon icon={faUser} className='noFotoPerfil'/>
+          
+      }</label>
       <input type="file" onChange={handleFileChange} id="file" />
       {fileChange 
         ?

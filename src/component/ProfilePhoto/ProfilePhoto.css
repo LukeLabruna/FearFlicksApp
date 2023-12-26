@@ -25,3 +25,11 @@
   font-weight: bolder;
   margin: 0.5rem;
 }
+
+.noFotoPerfil {
+  font-size: 6rem;
+  background-color: gray;
+  padding: 2rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}

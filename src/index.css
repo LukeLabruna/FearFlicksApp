@@ -67,6 +67,11 @@ label {
   font-weight: bolder;
 }
 
+.swal2-title {
+  font-family: "MontserratAlternates-Thin";
+  border-bottom: none;
+}
+
 @media (width > 780px) {
   body {
     margin: 0;

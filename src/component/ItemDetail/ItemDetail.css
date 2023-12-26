@@ -10,6 +10,13 @@
 
 .itemDetail h2 {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.itemDetail h2 span {
+font-size: 2rem;
 }
 
 .itemDetail p {

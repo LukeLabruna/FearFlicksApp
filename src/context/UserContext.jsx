@@ -4,11 +4,13 @@ import { auth, db, storage } from "../services/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDoc, doc, updateDoc, arrayUnion, arrayRemove, onSnapshot } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
-
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 
 export const UserContext = createContext({
   usuario: undefined,
-  peliculasFavoritas: undefined
+  peliculasFavoritas: undefined,
+  ruleta: []
 })
 
 export const UserProvider = ({ children }) => {
@@ -16,7 +18,10 @@ export const UserProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(undefined)
   const [uid, setUid] = useState("")
   const [peliculasFavoritas, setPeliculasFavoritas] = useState(undefined)
+  const [ruleta, setRuleta] = useState([])
   const navigate = useNavigate()
+
+  const MySwal = withReactContent(Swal)
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
@@ -29,8 +34,8 @@ export const UserProvider = ({ children }) => {
         const unsub = onSnapshot(docRef, (doc) => {
           setPeliculasFavoritas(doc.data().peliculasFavoritas)
           setUsuario(doc.data())
-      })
-      return () => unsub()
+        })
+        return () => unsub()
       }
     })
   }, [])
@@ -61,8 +66,8 @@ export const UserProvider = ({ children }) => {
   const agregarFotoDePerfil = async (photoURL) => {
     const userRef = doc(db, "usuarios", uid);
     await updateDoc(userRef, {
-       photoURL: photoURL 
-      });
+      photoURL: photoURL
+    });
   };
 
   const eliminarFotoAnterior = async (anteriorUrl) => {
@@ -82,8 +87,32 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const handleRuleta = (movie) => {
+    const movieExistente = ruleta.find(item => item.id === movie.id)
+
+    if (ruleta.length >= 5 && !movieExistente) {
+      MySwal.fire({
+        toast: true,
+        icon: 'error',
+        title: 'Ya tienes 5 seleccionadas',
+        animation: false,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      })
+    } else {
+      if (!movieExistente) {
+        setRuleta(prev => [...prev, movie])
+      } else {
+        const actualizarRuleta = ruleta.filter(item => item.id !== movie.id)
+        setRuleta(actualizarRuleta)
+      }
+    }
+  }
+
   return (
-    <UserContext.Provider value={{ usuario, peliculasFavoritas, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito, handleSubirImg }}>
+    <UserContext.Provider value={{ usuario, peliculasFavoritas, ruleta, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito, handleSubirImg, handleRuleta }}>
       {children}
     </UserContext.Provider>
   )
