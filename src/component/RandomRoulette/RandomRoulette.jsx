@@ -1,11 +1,14 @@
 import { useContext, useState } from "react"
 import { UserContext } from "../../context/UserContext"
 import { Wheel } from "react-custom-roulette"
+import AddRoulette from "../AddRoulette/AddRoulette"
+import MiniItem from "../MiniItem/MiniItem"
+
 import "./RandomRoulette.css"
 
 const RandomRoulette = () => {
 
-  const { ruleta, handleVaciarRuleta } = useContext(UserContext)
+  const { ruleta, handleVaciarRuleta, handleAgregarGanador } = useContext(UserContext)
   const [girar, setGirar] = useState(false)
   const [prizeNumber, setPrizeNumber] = useState(0)
   const [ganador, setGanador] = useState("")
@@ -22,17 +25,14 @@ const RandomRoulette = () => {
     setPrizeNumber(newPrizeNumber);
     setGirar(true);
     setGanador(options[newPrizeNumber].titulo)
-  };
-
-  console.log(ganador)
-
-
+    handleAgregarGanador(options[newPrizeNumber].titulo)
+  }
 
   return (
     <>
       <h2>Ruleta</h2>
       {mostrarGanador ? (
-        <div className="ruedaRuleta">
+        <div className="centrar">
           <p>{`La pelicula ganadora es: ${ganador}!!`}</p>
         </div>
       ) : (
@@ -53,14 +53,17 @@ const RandomRoulette = () => {
               fontSize={25}
             />
             <button onClick={handleSpinClick}>Girar</button>
+            <h3>Peliculas seleccionadas:</h3>
+            {ruleta.map((movie) => (
+              <MiniItem key={movie.id} movie={movie} />
+            ))}
           </div>
         ) : (
-          <div className="ruedaRuleta">
+          <div className="centrar">
             <p>No hay peliculas seleccionadas</p>
           </div>
         )
       )}
-
     </>
   )
 }
