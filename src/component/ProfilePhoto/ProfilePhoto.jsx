@@ -43,15 +43,15 @@ const ProfilePhoto = () => {
       <input type="file" onChange={handleFileChange} id="file" />
       {fileChange 
         ?
-        <button
+        <p
           onClick={() => {
             handleSubirImg(file)
             setFileChange(false)
           }} >
           Cambiar foto de perfil
-        </button>
+        </p>
         : 
-        <label htmlFor="file"><button>Seleccionar foto de perfil</button></label>
+        <p htmlFor="file">Seleccionar foto de perfil</p>
       }
     </div>
   )

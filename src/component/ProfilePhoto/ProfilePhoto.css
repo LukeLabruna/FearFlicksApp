@@ -17,16 +17,7 @@
   align-items: center;
 }
 
-.profilePhoto button {
-  font-family: "MontserratAlternates-Thin";
-  font-weight: bolder;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  margin-top: 0.5rem;
-  background-color: white;
-}
+
 
 .noFotoPerfil {
   font-size: 6rem;
@@ -34,4 +25,10 @@
   padding: 2rem;
   border-radius: 50%;
   aspect-ratio: 1;
+}
+
+.profilePhoto > p {
+  margin: 0 !important;
+  font-size: 0.8rem;
+  letter-spacing: 0;
 }

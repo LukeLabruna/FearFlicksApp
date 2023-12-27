@@ -6,20 +6,32 @@ import "./UserProfile.css"
 
 const UserProfile = () => {
 
-  const { usuario, handleCerrarSesion } = useContext(UserContext)
+  const { usuario, handleCerrarSesion, peliculasGanadoras, peliculasFavoritas } = useContext(UserContext)
 
   if (!usuario) {
     return <Login />
   }
   return (
-    <div className="perfil">
+    <>
       <h2>Perfil</h2>
-      <div>
+      <div className="perfil">
         <ProfilePhoto />
-        <p>{usuario.nombre} {usuario.apellido}</p>
+        <h3>{usuario.nombre} {usuario.apellido}</h3>
+        <div>
+          <h4>Peliculas ganadoras de ruleta</h4>
+          {peliculasGanadoras?.map((movie, index) => (
+            <p key={index}>{movie}</p>
+          ))}
+        </div>
+        <div>
+          <h4>Peliculas Favoritas</h4>
+          {peliculasFavoritas?.map(movie => (
+            <p key={movie.id}>{movie.title}</p>
+          ))}
+        </div>
+        <button onClick={handleCerrarSesion}>Cerrar sesion</button>
       </div>
-      <button onClick={handleCerrarSesion}>Cerrar sesion</button>
-    </div>
+    </>
 
   )
 }
