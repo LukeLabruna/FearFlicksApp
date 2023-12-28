@@ -26,6 +26,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/decada/:decada' element={<Decade />} />
+            <Route path='/decada' element={<Decade />} />
             <Route path='/top' element={<Top />} />
             <Route path='/estrenos' element={<NowPlaying />} />
             <Route path='/pelicula/:id' element={<ItemDetailContainer />} />

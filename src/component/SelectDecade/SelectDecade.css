@@ -1,0 +1,17 @@
+.selectDecade .current {
+  color: #b80000;
+  font-size: 1.2rem;
+}
+
+.selectDecade {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(54, 54, 54);
+}
+
+.selectDecade a {
+  min-width: 3.8rem;
+  text-align: center;
+}

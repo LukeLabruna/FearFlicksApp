@@ -37,15 +37,12 @@ const NavBar = () => {
   return (
     <header>
       <Link className="brand" to={'/'} onClick={() => {window.scrollTo(0, 0);}}><h1 style={{ color: "white" }}>FearFlicks</h1></Link><span onClick={handleMostrar}><FontAwesomeIcon icon={faAngleDown} /></span>
-        <nav className={`decadas ${mostrar ? "mostrar" : ""}`}>
-          <p>Años</p>
+        <nav className={`categorias ${mostrar ? "mostrar" : ""}`}>
+          <p>Categorias</p>
           <div>
-            <Link to={'/decada/1970'}>1970</Link>
-            <Link to={'/decada/1980'}>1980</Link>
-            <Link to={'/decada/1990'}>1990</Link>
-            <Link to={'/decada/2000'}>2000</Link>
-            <Link to={'/decada/2010'}>2010</Link>
-            <Link to={'/decada/2020'}>2020</Link>
+            <Link to={'/estrenos'}>Top</Link>
+            <Link to={'/top'}>Estrenos</Link>
+            <Link to={'/decada'}>Por Años</Link>
           </div>
         </nav>
         <div className="usuario">

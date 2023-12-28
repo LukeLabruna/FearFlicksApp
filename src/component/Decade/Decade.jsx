@@ -3,6 +3,7 @@ import { optionsApi, fetchMovies } from "../../services/TMDBAPI";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 import { useParams } from "react-router-dom";
+import SelectDecade from "../SelectDecade/SelectDecade";
 
 const Decade = () => {
   const [movies, setMovies] = useState([])
@@ -10,10 +11,12 @@ const Decade = () => {
   const [loading, setLoading] = useState(true)
 
   const { decada } = useParams()
+  const year = new Date().getFullYear();
+  
 
   const fetchData = async () => {
     setLoading(true)
-    await fetch(fetchMovies(decada, numberPage), optionsApi)
+    await fetch(fetchMovies(`${!decada ? year : decada}`, numberPage), optionsApi)
       .then(response => response.json())
       .then(response => {
         if (numberPage === 1) {
@@ -46,7 +49,8 @@ const Decade = () => {
         next={() => setNumberPage((prevPage) => prevPage + 1)}
         hasMore={true}
       >
-        <ItemListContainer titulo={decada} movies={movies} loading={loading} />
+        <SelectDecade />
+        <ItemListContainer titulo={`Años ${!decada ? year : decada}`} movies={movies} loading={loading} />
       </InfiniteScroll>
     </>
   )
