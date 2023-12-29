@@ -1,4 +1,4 @@
-# Películas de Terror App
+# Fear-Flicks App
 
 ## Descripción
 
