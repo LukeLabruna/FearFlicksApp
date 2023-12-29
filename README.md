@@ -63,6 +63,7 @@ Esta aplicación de películas de terror permite a los usuarios explorar y disfr
 ## Para visualizar el proyecto
 
 1. https://fear-flicks-app.vercel.app
+2. https://fearflicks.netlify.app
 
 ## Licencia
 
