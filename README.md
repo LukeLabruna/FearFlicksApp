@@ -60,6 +60,10 @@ Esta aplicación de películas de terror permite a los usuarios explorar y disfr
 1. Crea una cuenta en TMDB
 2. Copia el Acces token auth y configura las variables de entornii en el archivo .env de tu proyecto
 
+## Para visualizar el proyecto
+
+1. https://fear-flicks-app.vercel.app
+
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más información.
