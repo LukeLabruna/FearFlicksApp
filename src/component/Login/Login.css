@@ -49,3 +49,9 @@
   font-family: "MontserratAlternates-Thin";
   font-weight: bolder;
 }
+
+@media (width > 780px) {
+  .Login form {
+    width: 30%;
+  }
+}

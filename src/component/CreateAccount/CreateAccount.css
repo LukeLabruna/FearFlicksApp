@@ -48,3 +48,9 @@
 .CreateAccount form .error {
   border: 2px solid rgb(255, 38, 0);
 }
+
+@media (width > 780px) {
+  .CreateAccount form {
+    width: 30%;
+  }
+}
