@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { auth, db, storage } from "../services/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDoc, doc, updateDoc, arrayUnion, arrayRemove, onSnapshot } from "firebase/firestore";
@@ -22,8 +22,14 @@ export const UserProvider = ({ children }) => {
   const [ruleta, setRuleta] = useState([])
   const [peliculasGanadoras, setPeliculasGanadoras] = useState(undefined)
   const navigate = useNavigate()
-
+  const { pathname } = useLocation()
   const MySwal = withReactContent(Swal)
+
+  useEffect(() => {
+    const pathParts = pathname.split('/');
+    const pageTitle = pathParts[1]
+    document.title = `FearFlicks | ${pageTitle.toUpperCase()}`
+  }, [pathname]);
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {

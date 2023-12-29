@@ -7,7 +7,7 @@ import { faAngleDown, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  document.title = "FearFlicks | Home"
+  document.title = "FearFlicks | HOME"
 
   const [bestMovie, setBestMovie] = useState([])
   const [newMovie, setNewMovie] = useState([])
