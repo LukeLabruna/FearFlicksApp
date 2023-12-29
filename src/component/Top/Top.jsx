@@ -13,29 +13,30 @@ const Top = () => {
     await fetch(fetchTopMovie(numberPage), optionsApi)
       .then(response => response.json())
       .then(response => {
-        const movieFilter = response.results.filter(movie => movie.overview.trim() !== "")
-        setMovies((prevMovies) => [...prevMovies, ...movieFilter])
-        setLoading(false)
+        if (numberPage === 1) {
+          setMovies(response.results.filter(movie => movie.overview.trim() !== ""));
+        } else {
+          setMovies(prevMovies => [...prevMovies, ...response.results.filter(movie => movie.overview.trim() !== "")]);
+        }
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false))
   }
 
   useEffect(() => {
     fetchData()
   }, [numberPage])
 
-  console.log(movies)
-
   return (
-    <>
+    <main>
       <InfiniteScroll
-      dataLength={movies.length}
-      next={() => setNumberPage((prevPage) => prevPage + 1)}
-      hasMore={true}
+        dataLength={movies.length}
+        next={() => setNumberPage((prevPage) => prevPage + 1)}
+        hasMore={true}
       >
-      <ItemListContainer titulo={"Top"} movies={movies} loading={loading} />
+        <ItemListContainer titulo={"Principales"} movies={movies} loading={loading} />
       </InfiniteScroll>
-    </>
+    </main>
   )
 }
 

@@ -13,11 +13,14 @@ const NowPlaying = () => {
     await fetch(fetchNowPlaying(numberPage), optionsApi)
       .then(response => response.json())
       .then(response => {
-        const movieFilter = response.results.filter(movie => movie.overview.trim() !== "")
-        setMovies((prevMovies) => [...prevMovies, ...movieFilter])
-        setLoading(false)
+        if (numberPage === 1) {
+          setMovies(response.results.filter(movie => movie.overview.trim() !== ""));
+        } else {
+          setMovies(prevMovies => [...prevMovies, ...response.results.filter(movie => movie.overview.trim() !== "")]);
+        }
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false))
   }
 
   useEffect(() => {
@@ -26,7 +29,7 @@ const NowPlaying = () => {
 
   
   return (
-    <>
+    <main>
       <InfiniteScroll
       dataLength={movies.length}
       next={() => setNumberPage((prevPage) => prevPage + 1)}
@@ -34,7 +37,7 @@ const NowPlaying = () => {
       >
       <ItemListContainer titulo={"Estrenos"} movies={movies} loading={loading} />
       </InfiniteScroll>
-    </>
+    </main>
   )
 }
 

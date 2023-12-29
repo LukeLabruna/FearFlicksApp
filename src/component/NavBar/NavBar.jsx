@@ -40,14 +40,13 @@ const NavBar = () => {
         <nav className={`categorias ${mostrar ? "mostrar" : ""}`}>
           <p>Categorias</p>
           <div>
-            <Link to={'/estrenos'}>Top</Link>
-            <Link to={'/top'}>Estrenos</Link>
+            <Link to={'/estrenos'}>Estrenos</Link>
+            <p className="separador">|</p>
+            <Link to={'/top'}>Principales</Link>
+            <p className="separador">|</p>
             <Link to={'/decada'}>Por Años</Link>
           </div>
         </nav>
-        <div className="usuario">
-          <p>Iniciar Sesion</p>
-        </div>
     </header>
   )
 }

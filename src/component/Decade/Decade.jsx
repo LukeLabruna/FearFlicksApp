@@ -12,7 +12,6 @@ const Decade = () => {
 
   const { decada } = useParams()
   const year = new Date().getFullYear();
-  
 
   const fetchData = async () => {
     setLoading(true)
@@ -43,7 +42,7 @@ const Decade = () => {
   }, [numberPage])
 
   return (
-    <>
+    <main>
       <InfiniteScroll
         dataLength={movies.length}
         next={() => setNumberPage((prevPage) => prevPage + 1)}
@@ -52,7 +51,7 @@ const Decade = () => {
         <SelectDecade />
         <ItemListContainer titulo={`Años ${!decada ? year : decada}`} movies={movies} loading={loading} />
       </InfiniteScroll>
-    </>
+    </main>
   )
 }
 

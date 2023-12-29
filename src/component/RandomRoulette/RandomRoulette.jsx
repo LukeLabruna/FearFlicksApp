@@ -29,7 +29,7 @@ const RandomRoulette = () => {
   }
 
   return (
-    <>
+    <main>
       <h2>Ruleta</h2>
       {mostrarGanador ? (
         <div className="centrar">
@@ -47,8 +47,8 @@ const RandomRoulette = () => {
                 setMostrarGanador(true);
                 handleVaciarRuleta();
               }}
-              backgroundColors={['#3e3e3e', 'white']}
-              textColors={['#ffffff', 'black']}
+              backgroundColors={['white']}
+              textColors={['black']}
               fontFamily="MontserratAlternates-Thin"
               fontSize={25}
             />
@@ -64,7 +64,7 @@ const RandomRoulette = () => {
           </div>
         )
       )}
-    </>
+    </main>
   )
 }
 

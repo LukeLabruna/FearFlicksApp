@@ -60,6 +60,7 @@ a {
   font-family: "MontserratAlternates-Thin";
   font-weight: bold;
   letter-spacing: 0.2rem;
+  cursor: pointer;
 }
 
 label {
@@ -75,5 +76,12 @@ label {
 @media (width > 780px) {
   body {
     margin: 0;
+  }
+
+  main {
+    margin: 0 auto;
+    width: 50%;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
   }
 }

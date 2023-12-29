@@ -44,7 +44,7 @@ const Search = () => {
   }, [numberPage, query])
 
   return (
-    <>
+    <main>
       <div className="barraBusqueda">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <input type="text" placeholder="Busqueda..." onChange={handleOnChange} />
@@ -62,7 +62,7 @@ const Search = () => {
         </InfiniteScroll>
       
 
-    </>
+    </main>
   )
 }
 

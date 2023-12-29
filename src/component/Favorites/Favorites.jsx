@@ -8,12 +8,12 @@ const Favorites = () => {
 
   if (usuario) {
     return (
-      <>
+      <main>
         <h2>Favoritas</h2>
         {peliculasFavoritas.map((movie) => (
           <MiniItem key={movie.id} movie={movie} />
         ))}
-      </>
+      </main>
     )
   } return <Login />
 

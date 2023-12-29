@@ -12,7 +12,7 @@ const UserProfile = () => {
     return <Login />
   }
   return (
-    <>
+    <main>
       <h2>Perfil</h2>
       <div className="perfil">
         <ProfilePhoto />
@@ -31,7 +31,7 @@ const UserProfile = () => {
         </div>
         <button onClick={handleCerrarSesion}>Cerrar sesion</button>
       </div>
-    </>
+    </main>
 
   )
 }

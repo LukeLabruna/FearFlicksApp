@@ -22,7 +22,7 @@ const Login = () => {
   }
 
   return (
-    <div className="Login">
+    <main className="Login">
       <h2>Iniciar Sesion</h2>
       <form onSubmit={iniciarSesion}>
         <label htmlFor="email">Email: </label>
@@ -34,7 +34,7 @@ const Login = () => {
         <button type="submit">Iniciar Sesion</button>
         <Link to={"/crear-cuenta"}>Crear cuenta</Link>
       </form>
-    </div>
+    </main>
   )
 }
 
