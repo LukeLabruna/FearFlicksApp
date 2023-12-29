@@ -25,6 +25,14 @@ font-size: 2rem;
 
 @media (width > 780px) {
   .itemDetail {
+    flex-direction: row;
+  }
+
+  .itemDetail img {
     width: 50%;
+  }
+
+  .itemDetail h2 {
+    width: 100%;
   }
 }
