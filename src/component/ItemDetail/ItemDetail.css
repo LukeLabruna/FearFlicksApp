@@ -22,3 +22,9 @@ font-size: 2rem;
 .itemDetail p {
   padding: 0 1rem;
 }
+
+@media (width > 780px) {
+  .itemDetail {
+    width: 50%;
+  }
+}
