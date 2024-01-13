@@ -13,12 +13,14 @@
   margin: 0;
 }
 
-.Login a{
+.Login a, .Login p{
   border-top: 1px solid rgb(54, 54, 54);
   text-align: center;
   margin-top: 0.8rem;
   padding-top: 0.5rem;
   width: 100%;
+  font-weight: bolder;
+  cursor: pointer;
 }
 
 .Login form input {
@@ -38,6 +40,8 @@
   cursor: pointer;
   border-radius: 0.3rem;
   background-color: white;
+  margin-bottom: 1rem;
+  color: black;
 }
 
 .Login form .error {

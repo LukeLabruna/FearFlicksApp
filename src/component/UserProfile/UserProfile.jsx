@@ -4,10 +4,21 @@ import Login from "../Login/Login"
 import ProfilePhoto from "../ProfilePhoto/ProfilePhoto"
 import AuthenticateEmail from "../AuthenticateEmail/AuthenticateEmail"
 import "./UserProfile.css"
+import { auth } from "../../services/firebase"
+import { sendPasswordResetEmail } from "firebase/auth"
+import { useNavigate } from "react-router-dom"
 
 const UserProfile = () => {
 
   const { usuario, handleCerrarSesion, peliculasGanadoras, peliculasFavoritas, emailVerified } = useContext(UserContext)
+  const navigate = useNavigate()
+  
+  const handleCambiarPassword = () => {
+    auth.useDeviceLanguage()
+    sendPasswordResetEmail(auth, usuario.email)
+    navigate("/")
+    window.location.reload()
+  }
 
   if (emailVerified) {
     return (
@@ -29,6 +40,7 @@ const UserProfile = () => {
             ))}
           </div>
           <button onClick={handleCerrarSesion}>Cerrar sesion</button>
+          <button onClick={handleCambiarPassword}>Cambiar Contraseña</button>
         </div>
       </main>
 
