@@ -11,6 +11,7 @@ export const UserContext = createContext({
   usuario: undefined,
   peliculasFavoritas: undefined,
   peliculasGanadoras: undefined,
+  emailVerified: undefined,
   ruleta: []
 })
 
@@ -21,6 +22,7 @@ export const UserProvider = ({ children }) => {
   const [peliculasFavoritas, setPeliculasFavoritas] = useState(undefined)
   const [ruleta, setRuleta] = useState([])
   const [peliculasGanadoras, setPeliculasGanadoras] = useState(undefined)
+  const [emailVerified, setEmailVerified ] = useState(undefined)
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const MySwal = withReactContent(Swal)
@@ -38,6 +40,7 @@ export const UserProvider = ({ children }) => {
         const document = await getDoc(docRef)
         setUsuario(document.data())
         setUid(user.uid)
+        setEmailVerified(user.emailVerified)
         setPeliculasFavoritas(document.data().peliculasFavoritas)
         const unsub = onSnapshot(docRef, (doc) => {
           setPeliculasFavoritas(doc.data().peliculasFavoritas)
@@ -53,16 +56,41 @@ export const UserProvider = ({ children }) => {
     await signOut(auth).then(() => {
       setUsuario("")
       navigate("/")
+      window.location.reload()
     }).catch((error) => {
       console.log(error)
     });
   }
 
   const handleAgregarFavorito = async (movie) => {
-    const docRef = doc(db, "usuarios", uid);
-    await updateDoc(docRef, {
-      peliculasFavoritas: arrayUnion(movie)
-    })
+    if (emailVerified) {
+      const docRef = doc(db, "usuarios", uid);
+      await updateDoc(docRef, {
+        peliculasFavoritas: arrayUnion(movie)
+      })
+    } else if (usuario && !emailVerified) {
+      MySwal.fire({
+        toast: true,
+        icon: 'error',
+        title: 'Debes autentificar tu email',
+        animation: false,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      })
+    } else {
+      MySwal.fire({
+        toast: true,
+        icon: 'error',
+        title: 'Debes iniciar sesion',
+        animation: false,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      })
+    }
   }
 
   const handleBorrarFavorito = async (movie) => {
@@ -132,7 +160,7 @@ export const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ usuario, peliculasFavoritas, ruleta, peliculasGanadoras, handleAgregarGanador, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito, handleSubirImg, handleRuleta, handleVaciarRuleta }}>
+    <UserContext.Provider value={{ usuario, peliculasFavoritas, ruleta, peliculasGanadoras, emailVerified, handleAgregarGanador, handleCerrarSesion, handleAgregarFavorito, handleBorrarFavorito, handleSubirImg, handleRuleta, handleVaciarRuleta }}>
       {children}
     </UserContext.Provider>
   )

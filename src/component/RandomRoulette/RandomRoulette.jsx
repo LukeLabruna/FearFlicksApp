@@ -1,9 +1,7 @@
 import { useContext, useState } from "react"
 import { UserContext } from "../../context/UserContext"
 import { Wheel } from "react-custom-roulette"
-import AddRoulette from "../AddRoulette/AddRoulette"
 import MiniItem from "../MiniItem/MiniItem"
-
 import "./RandomRoulette.css"
 
 const RandomRoulette = () => {
@@ -49,7 +47,7 @@ const RandomRoulette = () => {
               }}
               backgroundColors={['white']}
               textColors={['black']}
-              fontFamily="MontserratAlternates-Thin"
+              fontFamily='Montserrat Alternates'
               fontSize={25}
             />
             <button onClick={handleSpinClick}>Girar</button>

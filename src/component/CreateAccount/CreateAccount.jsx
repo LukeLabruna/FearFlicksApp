@@ -1,5 +1,5 @@
 import { auth, db } from "../../services/firebase"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth"
 import { setDoc, doc } from "firebase/firestore"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -48,6 +48,8 @@ const CreateAccount = () => {
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((response) => { 
+        auth.useDeviceLanguage()
+        sendEmailVerification(response.user)
         setDoc(doc(db, "usuarios", `${response.user.uid}`), nuevoUsuario)
         navigate("/")
       })

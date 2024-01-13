@@ -2,11 +2,12 @@ import { useContext } from "react"
 import { UserContext } from "../../context/UserContext"
 import Login from "../Login/Login"
 import MiniItem from "../MiniItem/MiniItem"
+import AuthenticateEmail from "../AuthenticateEmail/AuthenticateEmail"
 
 const Favorites = () => {
-  const { peliculasFavoritas, usuario } = useContext(UserContext)
+  const { peliculasFavoritas, usuario, emailVerified } = useContext(UserContext)
 
-  if (usuario) {
+  if (emailVerified) {
     return (
       <main>
         <h2>Favoritas</h2>
@@ -15,7 +16,11 @@ const Favorites = () => {
         ))}
       </main>
     )
-  } return <Login />
+  } else if (usuario && !emailVerified) {
+    return <AuthenticateEmail />
+  } else {
+    return <Login />
+  }
 
 
 }

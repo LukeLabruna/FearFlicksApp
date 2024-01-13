@@ -19,7 +19,7 @@
 }
 @font-face {
   font-family: "MontserratAlternates-Thin";
-  src: url('/font/MontserratAlternates-Thin.ttf') format('truetype');
+  src: url('/font/MontserratAlternates-Thin.ttf');
 }
 
 h1, h2 {
