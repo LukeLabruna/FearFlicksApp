@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Esta aplicación de películas de terror permite a los usuarios explorar y disfrutar de una amplia variedad de películas de este género. Desde la posibilidad de seleccionar favoritas hasta jugar a la ruleta para descubrir una película al azar, la aplicación ofrece diversas funcionalidades para los amantes del terror.
+Esta aplicación de películas de terror permite a los usuarios explorar y disfrutar de una amplia variedad de películas de este género. La aplicación ofrece la posibilidad de seleccionar favoritas y hasta jugar a la ruleta para descubrir una película al azar de las seleccionadas.
 
 ## Tecnologías Utilizadas
 
