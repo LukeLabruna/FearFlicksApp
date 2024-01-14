@@ -17,7 +17,8 @@ const AddFavorites = ({movie}) => {
           : handleAgregarFavorito(movie)   
         }} 
         style={{
-          color: isFavorite ? "#b80000" : "#ffffff"
+          color: isFavorite ? "#b80000" : "#ffffff",
+          cursor: "pointer",
         }}
       />
   )

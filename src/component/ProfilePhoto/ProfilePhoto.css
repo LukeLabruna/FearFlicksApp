@@ -17,7 +17,9 @@
   align-items: center;
 }
 
-
+.profilePhoto label {
+  display: contents;
+}
 
 .noFotoPerfil {
   font-size: 6rem;
@@ -25,10 +27,4 @@
   padding: 2rem;
   border-radius: 50%;
   aspect-ratio: 1;
-}
-
-.profilePhoto > p {
-  margin: 0 !important;
-  font-size: 0.8rem;
-  letter-spacing: 0;
 }

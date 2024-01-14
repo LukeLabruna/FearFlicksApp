@@ -14,7 +14,8 @@ const AddRoulette = ({movie}) => {
     <FontAwesomeIcon icon={faDharmachakra}
     onClick={() => handleRuleta(movie)}
     style={{
-      color: isFavorite ? "#b80000" : "#ffffff"
+      color: isFavorite ? "#b80000" : "#ffffff",
+      cursor: "pointer",
     }}
     />
   )

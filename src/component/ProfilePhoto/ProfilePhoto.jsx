@@ -24,6 +24,7 @@ const ProfilePhoto = () => {
       };
 
       reader.readAsDataURL(selectedFile);
+      handleSubirImg(selectedFile)
     }
     setFileChange(true)
   }
@@ -39,20 +40,9 @@ const ProfilePhoto = () => {
           ? <img src={previewUrl} alt="" />
           : <FontAwesomeIcon icon={faUser} className='noFotoPerfil'/>
           
-      }</label>
+      }<p>Cambiar foto de perfil</p>
+      </label>
       <input type="file" onChange={handleFileChange} id="file" />
-      {fileChange 
-        ?
-        <p
-          onClick={() => {
-            handleSubirImg(file)
-            setFileChange(false)
-          }} >
-          Cambiar foto de perfil
-        </p>
-        : 
-        <p htmlFor="file">Seleccionar foto de perfil</p>
-      }
     </div>
   )
 }
