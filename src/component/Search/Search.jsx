@@ -47,7 +47,7 @@ const Search = () => {
     <main>
       <div className="barraBusqueda">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
-        <input type="text" placeholder="Busqueda..." onChange={handleOnChange} />
+        <input type="text" placeholder="Búsqueda..." onChange={handleOnChange} />
       </div>
       
         <InfiniteScroll

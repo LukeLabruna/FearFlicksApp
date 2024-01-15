@@ -67,8 +67,8 @@ const Login = () => {
         <label htmlFor="password">Contraseña: </label>
         <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} className={error ? "error" : ""} placeholder={error ? `${error}` : ""}/>
 
-        <button type="submit">Iniciar Sesion</button>
-        <p onClick={handleForgetPassword}>Olvide la contraseña</p>
+        <button type="submit">Iniciar Sesión</button>
+        <p onClick={handleForgetPassword}>Olvidé la contraseña</p>
         <Link to={"/crear-cuenta"}>Crear cuenta</Link>
       </form>
     </main>
